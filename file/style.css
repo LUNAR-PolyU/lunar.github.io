@@ -206,3 +206,11 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
   .footer-right { align-items: start; }
   .application { padding: 28px; }
 }
+
+html {
+  font-size: 20px;
+}
+
+body {
+  font-size: 1.10rem; /* 相对于 html 的 105% */
+}
