@@ -35,18 +35,18 @@ button, input, select { font: inherit; }
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0,0,0,.07);
 }
-.brand { display: flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 700; letter-spacing: -.02em; }
+.brand { display: flex; align-items: center; gap: 11px; font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em; }
 .brand-mark {
   display: grid; place-items: center;
   width: 34px; height: 34px; border-radius: 10px;
-  background: #111; color: #fff; font-size: 11px; letter-spacing: .04em;
+  background: #111; color: #fff; font-size: 1.1rem; letter-spacing: .04em;
 }
 .nav { display: flex; align-items: center; gap: 8px; }
 .nav-link {
   position: relative;
   padding: 9px 13px;
   color: #696a67;
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 600;
   transition: color .2s ease;
 }
@@ -55,7 +55,7 @@ button, input, select { font: inherit; }
   content: ""; position: absolute; left: 13px; right: 13px; bottom: 2px;
   height: 1.5px; background: #111;
 }
-.menu-button { display: none; border: 0; background: transparent; font-size: 22px; cursor: pointer; }
+.menu-button { display: none; border: 0; background: transparent; font-size: 2.2rem; cursor: pointer; }
 
 main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .page { display: none; min-height: calc(100vh - 76px); padding: 86px 0 110px; animation: fadeIn .35s ease; }
@@ -66,23 +66,23 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
   min-height: 620px; display: grid; grid-template-columns: 1.05fr .95fr;
   align-items: center; gap: 60px; padding: 30px 0 100px;
 }
-.eyebrow { margin: 0 0 18px; font-size: 10px; letter-spacing: .19em; font-weight: 800; color: #777874; }
+.eyebrow { margin: 0 0 18px; font-size: 1.0rem; letter-spacing: .19em; font-weight: 800; color: #777874; }
 .hero h1, .recruitment-hero h1 {
-  margin: 0; font-size: clamp(46px, 6vw, 80px); line-height: .98; letter-spacing: -.065em; font-weight: 760;
+  margin: 0; font-size: clamp(4.6rem, 6vw, 8.0rem); line-height: .98; letter-spacing: -.065em; font-weight: 760;
 }
 .hero h1 span, .recruitment-hero h1 span { color: #8a8b86; }
-.lead { max-width: 650px; margin: 30px 0 0; color: #5e5f5b; font-size: 17px; line-height: 1.75; }
+.lead { max-width: 650px; margin: 30px 0 0; color: #5e5f5b; font-size: 1.7rem; line-height: 1.75; }
 .hero-actions { display: flex; gap: 11px; margin-top: 36px; flex-wrap: wrap; }
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 44px; padding: 0 18px; border-radius: 999px;
-  font-size: 13px; font-weight: 700; border: 1px solid #cfcfca; transition: .2s ease;
+  font-size: 1.3rem; font-weight: 700; border: 1px solid #cfcfca; transition: .2s ease;
 }
 .button.primary { background: #111; color: white; border-color: #111; }
 .button.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,.12); }
 .button.secondary { background: transparent; }
 .button.secondary:hover { background: #fff; }
-.button.small { min-height: 38px; padding: 0 14px; font-size: 12px; }
+.button.small { min-height: 38px; padding: 0 14px; font-size: 1.2rem; }
 
 .hero-visual {
   position: relative; height: 470px; overflow: hidden; border-radius: 28px;
@@ -98,20 +98,20 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .orb { position: absolute; border-radius: 50%; filter: blur(.2px); border: 1px solid rgba(255,255,255,.55); }
 .orb-1 { width: 310px; height: 310px; left: 17%; top: 17%; box-shadow: 0 0 0 26px rgba(255,255,255,.035), 0 0 0 54px rgba(255,255,255,.025); }
 .orb-2 { width: 130px; height: 130px; right: 11%; bottom: 13%; border-color: rgba(255,255,255,.22); }
-.visual-label { position: absolute; bottom: 24px; left: 25px; color: rgba(255,255,255,.58); font-size: 9px; letter-spacing: .2em; }
+.visual-label { position: absolute; bottom: 24px; left: 25px; color: rgba(255,255,255,.58); font-size: 1.0rem; letter-spacing: .2em; }
 
 .section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; border-top: 1px solid var(--line); padding-top: 75px; }
-h2 { font-size: clamp(28px, 3.5vw, 44px); line-height: 1.08; letter-spacing: -.045em; margin: 0; }
-.text-block { color: #5d5e5a; font-size: 15px; }
+h2 { font-size: clamp(2.8rem, 3.5vw, 4.4rem); line-height: 1.08; letter-spacing: -.045em; margin: 0; }
+.text-block { color: #5d5e5a; font-size: 1.5rem; }
 .text-block p { margin: 0 0 20px; }
 .research-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; margin-top: 75px; background: var(--line); border: 1px solid var(--line); }
 .research-card { background: var(--bg); padding: 27px; min-height: 245px; }
-.card-number { font-size: 10px; color: #999a95; letter-spacing: .15em; }
-.research-card h3 { margin: 54px 0 10px; font-size: 17px; letter-spacing: -.025em; }
-.research-card p { margin: 0; color: var(--muted); font-size: 13px; }
+.card-number { font-size: 1.0rem; color: #999a95; letter-spacing: .15em; }
+.research-card h3 { margin: 54px 0 10px; font-size: 1.7rem; letter-spacing: -.025em; }
+.research-card p { margin: 0; color: var(--muted); font-size: 1.3rem; }
 .quote-band { margin-top: 95px; padding: 70px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.quote-band p { margin: 0; font-size: clamp(30px, 4vw, 52px); line-height: 1; letter-spacing: -.055em; }
-.quote-band span { display: block; margin-top: 20px; color: #8a8b86; font-size: 12px; }
+.quote-band p { margin: 0; font-size: clamp(3.0rem, 4vw, 5.2rem); line-height: 1; letter-spacing: -.055em; }
+.quote-band span { display: block; margin-top: 20px; color: #8a8b86; font-size: 1.2rem; }
 
 .page-heading { max-width: 790px; margin-bottom: 70px; }
 .page-heading h1 { margin: 0; font-size: clamp(52px, 7vw, 88px); line-height: .95; letter-spacing: -.065em; }
@@ -196,7 +196,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
 @media (max-width: 540px) {
   main { padding: 0 17px; }
   .site-header { padding: 0 17px; }
-  .hero h1, .recruitment-hero h1 { font-size: 47px; }
+  .hero h1, .recruitment-hero h1 { font-size: 4.7rem; }
   .research-cards { grid-template-columns: 1fr; }
   .member-card, .member-card.pi { flex-direction: column; }
   .avatar, .member-card.pi .avatar { width: 100%; min-width: 0; height: 220px; }
@@ -208,9 +208,9 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
 }
 
 html {
-  font-size: 40px;
+  font-size: 18px;
 }
 
 body {
-  font-size: 1.10rem; /* 相对于 html 的 105% */
+  font-size: 1.10rem;
 }
