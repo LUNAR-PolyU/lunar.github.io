@@ -5,7 +5,7 @@
   --muted: #6f706d;
   --line: #deded9;
   --accent: #111111;
-  --max: 1240px;
+  --max: 1600px;
   --radius: 18px;
 }
 
@@ -208,7 +208,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 body {
