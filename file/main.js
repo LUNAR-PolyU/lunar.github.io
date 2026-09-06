@@ -1,4 +1,4 @@
-const pages = ["home", "members", "publications", "recruitment"];
+const pages = ["home", "members", "publications", "fundings", "recruitment"];
 
 function setPage(page) {
   if (!pages.includes(page)) page = "home";
