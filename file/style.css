@@ -522,11 +522,13 @@ h2 {
   line-height: 1.35;
   letter-spacing: -0.02em;
   font-weight: 700;
+  max-width: 800px;
 }
 .pub-authors {
   margin: 7px 0 0;
   color: #101010;
   font-size: 1rem;
+  max-width: 800px;
 }
 .pub-venue {
   margin-top: 7px;
