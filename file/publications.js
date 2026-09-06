@@ -128,7 +128,7 @@ async function loadPublications() {
   const list = document.getElementById("publication-list");
 
   try {
-    const response = await fetch("file/publications.bib");
+    const response = await fetch("./file/publications.bib");
     if (!response.ok) throw new Error("Could not load BibTeX");
     const text = await response.text();
     publications = parseBibTeX(text);
@@ -146,7 +146,7 @@ async function loadPublications() {
     list.innerHTML = `
       <div class="empty">
         <strong>Publications could not be loaded.</strong><br>
-        Please make sure <code>file/publications.bib</code> exists and the site is served
+        Please make sure <code>./file/publications.bib</code> exists and the site is served
         through GitHub Pages or another web server.
       </div>`;
   }
