@@ -26,11 +26,44 @@ function parseBibTeX(text) {
   return entries.sort((a, b) => Number(b.year || 0) - Number(a.year || 0));
 }
 
+// function renderPublications() {
+//   const list = document.getElementById("publication-list");
+//   const search = document.getElementById("publication-search").value.toLowerCase().trim();
+//   const year = document.getElementById("publication-filter").value;
+
+//   const filtered = publications.filter(p => {
+//     const haystack = [p.title, p.author, p.journal, p.booktitle, p.year].join(" ").toLowerCase();
+//     return (!search || haystack.includes(search)) && (year === "all" || p.year === year);
+//   });
+
+//   if (!filtered.length) {
+//     list.innerHTML = '<div class="empty">No publications found.</div>';
+//     return;
+//   }
+
+//   list.innerHTML = filtered.map(p => {
+//     const venue = p.journal || p.booktitle || p.publisher || "";
+//     const url = p.url || p.doi ? (p.url || `https://doi.org/${p.doi}`) : "";
+//     return `
+//       <article class="publication">
+//         <div class="pub-year">${escapeHtml(p.year || "—")}</div>
+//         <div>
+//           <h2 class="pub-title">${escapeHtml(p.title || "Untitled")}</h2>
+//           <p class="pub-authors">${escapeHtml(p.author || "")}</p>
+//           ${venue ? `<div class="pub-venue">${escapeHtml(venue)}</div>` : ""}
+//         </div>
+//         ${url ? `<a class="pub-link" href="${escapeAttr(url)}" target="_blank" rel="noopener">View paper ↗</a>` : ""}
+//       </article>
+//     `;
+//   }).join("");
+// }
+
 function renderPublications() {
   const list = document.getElementById("publication-list");
   const search = document.getElementById("publication-search").value.toLowerCase().trim();
   const year = document.getElementById("publication-filter").value;
 
+  // 先按搜索和年份过滤
   const filtered = publications.filter(p => {
     const haystack = [p.title, p.author, p.journal, p.booktitle, p.year].join(" ").toLowerCase();
     return (!search || haystack.includes(search)) && (year === "all" || p.year === year);
@@ -41,21 +74,49 @@ function renderPublications() {
     return;
   }
 
-  list.innerHTML = filtered.map(p => {
-    const venue = p.journal || p.booktitle || p.publisher || "";
-    const url = p.url || p.doi ? (p.url || `https://doi.org/${p.doi}`) : "";
-    return `
-      <article class="publication">
-        <div class="pub-year">${escapeHtml(p.year || "—")}</div>
-        <div>
-          <h2 class="pub-title">${escapeHtml(p.title || "Untitled")}</h2>
-          <p class="pub-authors">${escapeHtml(p.author || "")}</p>
-          ${venue ? `<div class="pub-venue">${escapeHtml(venue)}</div>` : ""}
-        </div>
-        ${url ? `<a class="pub-link" href="${escapeAttr(url)}" target="_blank" rel="noopener">View paper ↗</a>` : ""}
-      </article>
-    `;
-  }).join("");
+  // 按类型分组（核心修改）
+  const groups = {
+    journal: filtered.filter(p => p.type === 'article'),
+    conference: filtered.filter(p => p.type === 'inproceedings' || p.type === 'conference'),
+    other: filtered.filter(p => p.type !== 'article' && p.type !== 'inproceedings' && p.type !== 'conference')
+  };
+
+  // 如果某些组为空，不显示该组
+  let html = '';
+
+  if (groups.journal.length) {
+    html += `<h2 class="publication-group-title">📄 Journal Articles</h2>`;
+    html += groups.journal.map(p => renderPublicationItem(p)).join('');
+  }
+
+  if (groups.conference.length) {
+    html += `<h2 class="publication-group-title">🎤 Conference Papers</h2>`;
+    html += groups.conference.map(p => renderPublicationItem(p)).join('');
+  }
+
+  if (groups.other.length) {
+    html += `<h2 class="publication-group-title">📌 Other Publications</h2>`;
+    html += groups.other.map(p => renderPublicationItem(p)).join('');
+  }
+
+  list.innerHTML = html;
+}
+
+// 辅助函数：渲染单个 publication 条目（从原代码中提取）
+function renderPublicationItem(p) {
+  const venue = p.journal || p.booktitle || p.publisher || "";
+  const url = p.url || p.doi ? (p.url || `https://doi.org/${p.doi}`) : "";
+  return `
+    <article class="publication">
+      <div class="pub-year">${escapeHtml(p.year || "—")}</div>
+      <div>
+        <h2 class="pub-title">${escapeHtml(p.title || "Untitled")}</h2>
+        <p class="pub-authors">${escapeHtml(p.author || "")}</p>
+        ${venue ? `<div class="pub-venue">${escapeHtml(venue)}</div>` : ""}
+      </div>
+      ${url ? `<a class="pub-link" href="${escapeAttr(url)}" target="_blank" rel="noopener">View paper ↗</a>` : ""}
+    </article>
+  `;
 }
 
 async function loadPublications() {
