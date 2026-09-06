@@ -1,4 +1,4 @@
-# Research Group Academic Homepage
+# LUNAR Group Academic Homepage
 
 A modern, single-page academic website designed for GitHub Pages.
 
