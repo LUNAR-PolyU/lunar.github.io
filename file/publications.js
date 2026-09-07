@@ -45,44 +45,46 @@ function parseBibTeX(text) {
   });
 }
 
-// function renderPublications() {
-//   const list = document.getElementById("publication-list");
-//   const search = document.getElementById("publication-search").value.toLowerCase().trim();
-//   const year = document.getElementById("publication-filter").value;
+function formatAuthors(authorStr) {
+  if (!authorStr) return "";
+  const authors = authorStr.split(/\s+and\s+/i).map(a => a.trim()).filter(Boolean);
 
-//   const filtered = publications.filter(p => {
-//     const haystack = [p.title, p.author, p.journal, p.booktitle, p.year].join(" ").toLowerCase();
-//     return (!search || haystack.includes(search)) && (year === "all" || p.year === year);
-//   });
+  const formatted = authors.map(author => {
+    let lastName = "";
+    let firstNames = "";
 
-//   if (!filtered.length) {
-//     list.innerHTML = '<div class="empty">No publications found.</div>';
-//     return;
-//   }
+    if (author.includes(",")) {
+      const parts = author.split(",").map(s => s.trim());
+      lastName = parts[0];
+      firstNames = parts[1] || "";
+    } else {
+      const parts = author.split(/\s+/);
+      lastName = parts.pop() || "";
+      firstNames = parts.join(" ");
+    }
 
-//   list.innerHTML = filtered.map(p => {
-//     const venue = p.journal || p.booktitle || p.publisher || "";
-//     const url = p.url || p.doi ? (p.url || `https://doi.org/${p.doi}`) : "";
-//     return `
-//       <article class="publication">
-//         <div class="pub-year">${escapeHtml(p.year || "—")}</div>
-//         <div>
-//           <h2 class="pub-title">${escapeHtml(p.title || "Untitled")}</h2>
-//           <p class="pub-authors">${escapeHtml(p.author || "")}</p>
-//           ${venue ? `<div class="pub-venue">${escapeHtml(venue)}</div>` : ""}
-//         </div>
-//         ${url ? `<a class="pub-link" href="${escapeAttr(url)}" target="_blank" rel="noopener">View paper ↗</a>` : ""}
-//       </article>
-//     `;
-//   }).join("");
-// }
+    const initials = firstNames
+      ? firstNames
+          .split(/[\s-]+/)
+          .filter(Boolean)
+          .map(n => n[0].toUpperCase() + ".")
+          .join(" ")
+      : "";
+
+    return initials ? `${lastName}, ${initials}` : lastName;
+  });
+
+  if (formatted.length === 0) return "";
+  if (formatted.length === 1) return formatted[0];
+  if (formatted.length === 2) return `${formatted[0]} & ${formatted[1]}`;
+
+  return `${formatted.slice(0, -1).join(", ")} & ${formatted[formatted.length - 1]}`;
+}
 
 function renderPublications() {
   const list = document.getElementById("publication-list");
   const search = document.getElementById("publication-search").value.toLowerCase().trim();
   const year = document.getElementById("publication-filter").value;
-
-  // 先按搜索和年份过滤
   const filtered = publications.filter(p => {
     const haystack = [p.title, p.author, p.journal, p.note, p.year].join(" ").toLowerCase();
     return (!search || haystack.includes(search)) && (year === "all" || p.year === year);
@@ -93,14 +95,12 @@ function renderPublications() {
     return;
   }
 
-  // 按类型分组（核心修改）
   const groups = {
     journal: filtered.filter(p => p.type === 'article'),
     conference: filtered.filter(p => p.type === 'inproceedings' || p.type === 'conference'),
     other: filtered.filter(p => p.type !== 'article' && p.type !== 'inproceedings' && p.type !== 'conference')
   };
 
-  // 如果某些组为空，不显示该组
   let html = '';
 
   if (groups.journal.length) {
@@ -121,16 +121,16 @@ function renderPublications() {
   list.innerHTML = html;
 }
 
-// 辅助函数：渲染单个 publication 条目（从原代码中提取）
 function renderPublicationItem(p) {
   const venue = p.journal || p.note || p.publisher || "";
   const url = p.url || p.doi ? (p.url || `https://doi.org/${p.doi}`) : "";
-  return `
+  const formattedAuthors = formatAuthors(p.author || "");
+return `
     <article class="publication">
       <div class="pub-year">${escapeHtml(p.year || "—")}</div>
       <div>
         <h2 class="pub-title">${escapeHtml(p.title || "Untitled")}</h2>
-        <p class="pub-authors">${escapeHtml(p.author || "")}</p>
+        <p class="pub-authors">${escapeHtml(formattedAuthors)}</p>
         ${venue ? `<div class="pub-venue">${escapeHtml(venue)}</div>` : ""}
       </div>
       ${url ? `<a class="pub-link" href="${escapeAttr(url)}" target="_blank"
