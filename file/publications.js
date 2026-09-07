@@ -23,7 +23,35 @@ function parseBibTeX(text) {
     entries.push({ type, key, ...fields });
   }
 
-  return entries.sort((a, b) => Number(b.year || 0) - Number(a.year || 0));
+  // 辅助函数：将 BibTeX 的 month 字段统一转换为 1-12 的数字，无法解析时默认返回 0
+  const parseMonth = (monthStr) => {
+    if (!monthStr) return 0;
+    const cleanStr = monthStr.trim().toLowerCase();
+    
+    // 优先尝试直接解析数字 (1-12)
+    const num = parseInt(cleanStr, 10);
+    if (!isNaN(num) && num >= 1 && num <= 12) return num;
+
+    // 解析英文月份缩写或全称
+    const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+    const index = months.findIndex(m => cleanStr.startsWith(m));
+    return index !== -1 ? index + 1 : 0;
+  };
+
+  return entries.sort((a, b) => {
+    // 1. 按年份降序排序
+    const yearDiff = Number(b.year || 0) - Number(a.year || 0);
+    if (yearDiff !== 0) return yearDiff;
+
+    // 2. 按月份降序排序
+    const monthDiff = parseMonth(b.month) - parseMonth(a.month);
+    if (monthDiff !== 0) return monthDiff;
+
+    // 3. 按作者首字母升序排序 (A-Z)
+    const authorA = (a.author || "").toLowerCase();
+    const authorB = (b.author || "").toLowerCase();
+    return authorA.localeCompare(authorB);
+  });
 }
 
 // function renderPublications() {
@@ -65,7 +93,7 @@ function renderPublications() {
 
   // 先按搜索和年份过滤
   const filtered = publications.filter(p => {
-    const haystack = [p.title, p.author, p.journal, p.booktitle, p.year].join(" ").toLowerCase();
+    const haystack = [p.title, p.author, p.journal, p.note, p.year].join(" ").toLowerCase();
     return (!search || haystack.includes(search)) && (year === "all" || p.year === year);
   });
 
@@ -85,17 +113,17 @@ function renderPublications() {
   let html = '';
 
   if (groups.journal.length) {
-    html += `<h2 class="publication-group-title">📄 Journal Articles</h2>`;
+    html += `<h2 class="publication-group-title">Journal articles</h2>`;
     html += groups.journal.map(p => renderPublicationItem(p)).join('');
   }
 
   if (groups.conference.length) {
-    html += `<h2 class="publication-group-title">🎤 Conference Papers</h2>`;
+    html += `<h2 class="publication-group-title">Conference papers</h2>`;
     html += groups.conference.map(p => renderPublicationItem(p)).join('');
   }
 
   if (groups.other.length) {
-    html += `<h2 class="publication-group-title">📌 Other Publications</h2>`;
+    html += `<h2 class="publication-group-title">Other publications</h2>`;
     html += groups.other.map(p => renderPublicationItem(p)).join('');
   }
 
@@ -104,7 +132,7 @@ function renderPublications() {
 
 // 辅助函数：渲染单个 publication 条目（从原代码中提取）
 function renderPublicationItem(p) {
-  const venue = p.journal || p.booktitle || p.publisher || "";
+  const venue = p.journal || p.note || p.publisher || "";
   const url = p.url || p.doi ? (p.url || `https://doi.org/${p.doi}`) : "";
   return `
     <article class="publication">
@@ -114,7 +142,8 @@ function renderPublicationItem(p) {
         <p class="pub-authors">${escapeHtml(p.author || "")}</p>
         ${venue ? `<div class="pub-venue">${escapeHtml(venue)}</div>` : ""}
       </div>
-      ${url ? `<a class="pub-link" href="${escapeAttr(url)}" target="_blank" rel="noopener">View paper ↗</a>` : ""}
+      ${url ? `<a class="pub-link" href="${escapeAttr(url)}" target="_blank"
+      rel="noopener">View paper ↗</a>` : ""}
     </article>
   `;
 }

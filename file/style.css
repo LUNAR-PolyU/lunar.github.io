@@ -80,7 +80,7 @@ select {
   gap: 10px;
 }
 .brand-logo {
-  height: 60px;
+  height: 55px;
   width: auto;
   display: inline-block;
   vertical-align: top;
@@ -98,7 +98,9 @@ select {
   font-weight: 600;
   transition: color 0.2s ease;
 }
-.nav-link:hover,
+.nav-link:hover {
+  opacity: 0.6;
+}
 .nav-link.active {
   color: #111;
 }
@@ -211,6 +213,7 @@ main {
   background: transparent;
 }
 .button.secondary:hover {
+  opacity: 0.6;
   background: #fff;
 }
 .button.small {
@@ -406,6 +409,54 @@ h2 {
   font-size: 1rem;
   /* letter-spacing: 0.12em; */
 }
+.left-column {
+  float: left;
+  width: 150px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.headshot-photo_leader {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15%;
+  border: 2px solid #ccc;
+}
+.headshot-photo {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15%;
+  border: 2px solid #ccc;
+}
+
+.academic-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+.academic-link:hover {
+  opacity: 0.6;
+  text-decoration: underline;
+}
+.academic-link.orcid {
+  color: #a6ce39;
+}
+.academic-link.scholar {
+  color: #4d90fe;
+}
+.academic-link.researchgate {
+  color: #00ccbb;
+}
+.academic-link.scopus {
+  color: #e97110;
+}
+.academic-link.email {
+  color: #000;
+}
 .member-info {
   padding: 5px 0;
 }
@@ -538,11 +589,16 @@ h2 {
 }
 .pub-link {
   justify-self: end;
+  align-self: start;
   font-size: 1rem;
   text-decoration: underline;
   text-underline-offset: 4px;
   min-width: 130px;
   text-align: center;
+}
+.pub-link:hover {
+  opacity: 0.6;
+  text-decoration: underline;
 }
 .loading,
 .empty {
@@ -649,6 +705,15 @@ h2 {
   display: flex;
   gap: 25px;
   align-items: end;
+}
+
+.link-buttons {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.link-buttons:hover {
+  opacity: 0.6;
+  text-decoration: underline;
 }
 
 code {
