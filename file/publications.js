@@ -22,32 +22,23 @@ function parseBibTeX(text) {
 
     entries.push({ type, key, ...fields });
   }
-
-  // 辅助函数：将 BibTeX 的 month 字段统一转换为 1-12 的数字，无法解析时默认返回 0
   const parseMonth = (monthStr) => {
     if (!monthStr) return 0;
     const cleanStr = monthStr.trim().toLowerCase();
-    
-    // 优先尝试直接解析数字 (1-12)
     const num = parseInt(cleanStr, 10);
     if (!isNaN(num) && num >= 1 && num <= 12) return num;
-
-    // 解析英文月份缩写或全称
     const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
     const index = months.findIndex(m => cleanStr.startsWith(m));
     return index !== -1 ? index + 1 : 0;
   };
 
   return entries.sort((a, b) => {
-    // 1. 按年份降序排序
     const yearDiff = Number(b.year || 0) - Number(a.year || 0);
     if (yearDiff !== 0) return yearDiff;
 
-    // 2. 按月份降序排序
     const monthDiff = parseMonth(b.month) - parseMonth(a.month);
     if (monthDiff !== 0) return monthDiff;
 
-    // 3. 按作者首字母升序排序 (A-Z)
     const authorA = (a.author || "").toLowerCase();
     const authorB = (b.author || "").toLowerCase();
     return authorA.localeCompare(authorB);
