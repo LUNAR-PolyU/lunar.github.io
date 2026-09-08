@@ -198,6 +198,7 @@ main {
   font-weight: 700;
   border: 1px solid #5d5e5a;
   transition: 0.2s ease;
+  width: 280px;
 }
 .button.primary {
   /* background: #111; */
@@ -646,7 +647,7 @@ h2 {
 }
 .opening-status {
   font-size: 1rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0em;
   font-weight: 800;
 }
 .opening h2 {
