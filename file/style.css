@@ -147,12 +147,12 @@ main {
 }
 
 .hero {
-  min-height: 620px;
+  min-height: 500px;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
+  /* align-items: center; */
   gap: 60px;
-  padding: 30px 0 100px;
+  padding: 0px 0 0px;
 }
 .eyebrow {
   margin: 0 0 18px;
@@ -838,6 +838,16 @@ code {
   }
   .application {
     padding: 28px;
+  }
+  .brand-logo {
+    height: 40px;
+  }
+  .hero-visual {
+    height: 240px;
+    aspect-ratio: auto;
+  }
+  .hero-gif {
+    object-fit: cover;
   }
 }
 
