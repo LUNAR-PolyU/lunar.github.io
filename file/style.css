@@ -409,18 +409,24 @@ h2 {
   font-size: 1rem;
   /* letter-spacing: 0.12em; */
 }
-.left-column {
+.left-column_leader {
   float: left;
-  width: 150px;
-  margin-right: 20px;
-  margin-bottom: 10px;
+  width: 300px;
+  /* margin-right: 20px;
+  margin-bottom: 10px; */
 }
 .headshot-photo_leader {
-  width: 300px;
-  height: 300px;
+  width: 210px;
+  height: 280px;
   object-fit: cover;
   border-radius: 15%;
   border: 2px solid #ccc;
+}
+.left-column {
+  float: left;
+  width: 150px;
+  /* margin-right: 20px;
+  margin-bottom: 10px; */
 }
 .headshot-photo {
   width: 150px;
@@ -429,18 +435,25 @@ h2 {
   border-radius: 15%;
   border: 2px solid #ccc;
 }
-
+.academic-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
 .academic-link {
   display: inline-flex;
   align-items: center;
+  justify-content: left;
+  padding: 4px 0;
   font-size: 1rem;
   text-decoration: none;
   font-weight: 500;
-  transition: opacity 0.2s ease;
 }
 .academic-link:hover {
   opacity: 0.6;
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .academic-link.orcid {
   color: #a6ce39;
@@ -728,6 +741,7 @@ code {
 @media (max-width: 850px) {
   .site-header {
     height: 68px;
+    padding: 0 17px;
   }
   .nav {
     display: none;
@@ -765,14 +779,15 @@ code {
     gap: 45px;
   }
   .hero-visual {
-    height: 360px;
+    width: 100%;
+    aspect-ratio: auto;
   }
   .section-grid {
     grid-template-columns: 1fr;
     gap: 30px;
   }
   .research-cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   .members-grid,
   .opening-grid {
@@ -780,6 +795,12 @@ code {
   }
   .member-card.pi {
     grid-column: auto;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    min-height: auto;
   }
   .publication-heading {
     align-items: start;
@@ -796,35 +817,17 @@ code {
   .application {
     flex-direction: column;
     align-items: start;
+    padding: 28px;
   }
-}
-@media (max-width: 540px) {
+
   main {
-    padding: 0 17px;
-  }
-  .site-header {
     padding: 0 17px;
   }
   .hero h1,
   .recruitment-hero h1 {
     font-size: 1rem;
   }
-  .research-cards {
-    grid-template-columns: 1fr;
-  }
-  .members-grid {
-    grid-template-columns: 1fr;
-    width: 100%;
-    gap: 16px;
-  }
-  .members-grid {
-    grid-template-columns: 1fr;
-    width: 100%;
-    gap: 16px;
-  }
-
-  .member-card,
-  .member-card.pi {
+  .member-card {
     flex-direction: column;
     width: 100%;
     max-width: 100%;
@@ -833,30 +836,27 @@ code {
     min-height: auto;
   }
   .avatar,
-  .member-card.pi .avatar,
   .headshot-photo_leader,
   .headshot-photo {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    margin: 0 auto 12px;
+    width: 150px;
+    height: 200px;
+    margin: 0 0 12px;
     display: block;
   }
-  .left-column {
-    float: none;
-    width: 100%;
-    margin: 0;
-  }
-
   .member-info {
     width: 100%;
   }
-  .member-info .academic-links {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    gap: 16px 24px !important;
-    justify-content: flex-start;
-    margin-bottom: 12px;
+  .academic-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+  }
+  .academic-links a {
+    white-space: nowrap;
+    margin: 0;
+    padding: 2px 0;
+    line-height: 1;
   }
   .publication-controls {
     flex-direction: column;
@@ -872,18 +872,8 @@ code {
   .footer-right {
     align-items: start;
   }
-  .application {
-    padding: 28px;
-  }
   .brand-logo {
     height: 30px;
-  }
-  .hero-visual {
-    height: 240px;
-    aspect-ratio: auto;
-  }
-  .hero-gif {
-    object-fit: cover;
   }
 }
 
