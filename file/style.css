@@ -820,12 +820,20 @@ code {
   .member-card,
   .member-card.pi {
     flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    min-height: auto;
   }
   .avatar,
   .member-card.pi .avatar {
     width: 100%;
     min-width: 0;
     height: 220px;
+  }
+  .member-info {
+    width: 100%;
   }
   .publication-controls {
     flex-direction: column;
@@ -845,7 +853,7 @@ code {
     padding: 28px;
   }
   .brand-logo {
-    height: 25px;
+    height: 30px;
   }
   .hero-visual {
     height: 240px;
