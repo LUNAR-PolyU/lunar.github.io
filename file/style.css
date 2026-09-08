@@ -725,13 +725,13 @@ h2 {
   align-items: end;
 }
 
-.link-buttons {
+/* .link-buttons {
   text-decoration: underline;
   text-underline-offset: 4px;
-}
+} */
 .link-buttons:hover {
   opacity: 0.6;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 code {
