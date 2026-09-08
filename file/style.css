@@ -840,7 +840,8 @@ code {
     padding: 28px;
   }
   .brand-logo {
-    height: 40px;
+    width: 240px;
+    height: auto;
   }
   .hero-visual {
     height: 240px;
