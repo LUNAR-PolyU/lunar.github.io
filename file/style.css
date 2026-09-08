@@ -812,6 +812,11 @@ code {
   .research-cards {
     grid-template-columns: 1fr;
   }
+  .members-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 16px;
+  }
   .member-card,
   .member-card.pi {
     flex-direction: column;
@@ -840,7 +845,7 @@ code {
     padding: 28px;
   }
   .brand-logo {
-    height: 20px;
+    height: 25px;
   }
   .hero-visual {
     height: 240px;
