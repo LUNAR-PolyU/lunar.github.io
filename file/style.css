@@ -817,6 +817,12 @@ code {
     width: 100%;
     gap: 16px;
   }
+  .members-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 16px;
+  }
+
   .member-card,
   .member-card.pi {
     flex-direction: column;
@@ -827,13 +833,30 @@ code {
     min-height: auto;
   }
   .avatar,
-  .member-card.pi .avatar {
+  .member-card.pi .avatar,
+  .headshot-photo_leader,
+  .headshot-photo {
     width: 100%;
-    min-width: 0;
-    height: 220px;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 12px;
+    display: block;
   }
+  .left-column {
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+
   .member-info {
     width: 100%;
+  }
+  .member-info .academic-links {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 16px 24px !important;
+    justify-content: flex-start;
+    margin-bottom: 12px;
   }
   .publication-controls {
     flex-direction: column;
