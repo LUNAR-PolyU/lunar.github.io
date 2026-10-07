@@ -4,10 +4,10 @@
   --text: #101010;
   /* --text: #012d60; */
   /* --muted: #6f706d; */
-  --muted: #5d5e5a;
+  --muted: #000;
   --line: #deded9;
   --accent: #111111;
-  --max: 1240px;
+  --max: 1440px;
   --radius: 18px;
 }
 
@@ -93,9 +93,9 @@ select {
 .nav-link {
   position: relative;
   padding: 8px 4px;
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 800;
   transition: color 0.2s ease;
 }
 .nav-link:hover {
@@ -149,32 +149,33 @@ main {
 .hero {
   min-height: 500px;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  /* grid-template-columns: 0.2fr 0.9fr; */
   /* align-items: center; */
+  border-bottom: 1px solid var(--line);
   gap: 60px;
-  padding: 0px 0 0px;
+  padding: 0px 0 60px;
 }
 .eyebrow {
   margin: 0 0 18px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   /* letter-spacing: 0.19em; */
-  /* font-weight: 800; */
-  color: #5d5e5a;
+  font-weight: 800;
+  color: #000;
 }
 .hero h1,
 .recruitment-hero h1 {
   margin: 0;
-  font-size: clamp(2rem, 6vw, 3rem);
+  /* font-size: clamp(2rem, 6vw, 3rem); */
   line-height: 1;
   /* letter-spacing: -0.065em; */
-  font-weight: 760;
+  font-weight: 800;
 }
 .hero h1 span,
 .recruitment-hero h1 span {
-  color: #5d5e5a;
+  color: #000;
 }
 .lead {
-  max-width: 650px;
+  max-width: 100%;
   margin: 30px 0 0;
   color: #000;
   font-size: 1rem;
@@ -195,8 +196,8 @@ main {
   padding: 0 18px;
   border-radius: 999px;
   font-size: 1rem;
-  font-weight: 700;
-  border: 1px solid #5d5e5a;
+  font-weight: 800;
+  border: 1px solid #000;
   transition: 0.2s ease;
   width: 280px;
 }
@@ -229,7 +230,7 @@ main {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 28px;
-  background: #111;
+  background: #ffffff;
   isolation: isolate;
 }
 .hero-gif {
@@ -239,6 +240,24 @@ main {
   /* max-width: 600px;  */
   border-radius: 8px;
   /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);  */
+}
+.hero-visual.dual-stream {
+  position: relative;
+  /* height: 470px; */
+  aspect-ratio: 4 / 6;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #ffffff;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 0px; /* High-tech divider spacing revealing the dark background line */
+  padding: 0;
+}
+.hero-visual.dual-stream .hero-gif {
+  flex: 1;
+  width: 100%;
+  border-radius: 0; /* Creates sharp seamless inner lines against the split border */
 }
 .grid-plane {
   position: absolute;
@@ -250,6 +269,14 @@ main {
   transform: perspective(500px) rotateX(58deg) scale(1.45);
   transform-origin: center bottom;
   top: 32%;
+}
+.publication-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, auto);
+  width: 100%;
+  margin-top: 10px;
 }
 .orb {
   position: absolute;
@@ -284,10 +311,11 @@ main {
 
 .section-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.3fr 0.7fr;
   gap: 90px;
-  border-top: 1px solid var(--line);
-  padding-top: 75px;
+  /* border-top: 1px solid var(--line); */
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 h2_home {
   font-size: clamp(2rem, 3vw, 3rem);
@@ -302,7 +330,7 @@ h2 {
   margin: 0;
 }
 .text-block {
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
 }
 .text-block p {
@@ -323,7 +351,7 @@ h2 {
 }
 .card-number {
   font-size: 1rem;
-  color: #5d5e5a;
+  color: #000;
   letter-spacing: 0.15em;
 }
 .research-card h3 {
@@ -351,13 +379,19 @@ h2 {
 .quote-band span {
   display: block;
   margin-top: 20px;
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
 }
 
 .page-heading {
   max-width: 790px;
   margin-bottom: 70px;
+}
+.page notes {
+  display: block;
+  font-size: 1rem;
+  color: #696969;
+  margin: 50px 0 10px;
 }
 .page-heading h1 {
   margin: 0;
@@ -396,7 +430,7 @@ h2 {
   height: 180px;
   border-radius: 12px;
   overflow: hidden;
-  background: #5d5e5a;
+  background: #000;
 }
 .member-card.pi .avatar {
   width: 210px;
@@ -406,7 +440,7 @@ h2 {
 .avatar.placeholder {
   display: grid;
   place-items: center;
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
   /* letter-spacing: 0.12em; */
 }
@@ -439,14 +473,14 @@ h2 {
 .academic-links {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 3px;
   width: 100%;
 }
 .academic-link {
   display: inline-flex;
   align-items: center;
   justify-content: left;
-  padding: 4px 0;
+  padding: 0px 0;
   font-size: 1rem;
   text-decoration: none;
   font-weight: 500;
@@ -457,29 +491,39 @@ h2 {
   text-underline-offset: 4px;
 }
 .academic-link.orcid {
-  color: #a6ce39;
+  /* color: #a6ce39; */
+  color: #1a0dab;
 }
 .academic-link.scholar {
-  color: #4d90fe;
+  /* color: #4d90fe; */
+  color: #1a0dab;
 }
 .academic-link.researchgate {
-  color: #00ccbb;
+  /* color: #00ccbb; */
+  color: #1a0dab;
 }
 .academic-link.scopus {
-  color: #e97110;
+  /* color: #e97110; */
+  color: #1a0dab;
 }
 .academic-link.email {
-  color: #000;
+  color: #1a0dab;
+}
+.academic-link.navigate {
+  color: #1a0dab;
+  display: inline;
+  white-space: normal;
+  word-break: break-word;
 }
 .member-info {
   padding: 5px 0;
 }
 .role,
 .opening-type {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 800;
   /* letter-spacing: 0.17em; */
-  color: #5d5e5a;
+  color: #696969;
 }
 .member-info h2 {
   font-size: 1.5rem;
@@ -487,8 +531,16 @@ h2 {
 }
 .member-info p {
   margin: 0;
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
+  margin: 10px 0 10px;
+}
+.member-info p2 {
+  margin: 0;
+  color: #000;
+  font-size: 1rem;
+  margin: 10px 0 10px;
+  font-weight: 800;
 }
 .member-info .muted {
   margin-top: 18px;
@@ -509,7 +561,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 35px;
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
 }
 
@@ -539,7 +591,7 @@ h2 {
 }
 .search-box span {
   font-size: 1rem;
-  color: #5d5e5a;
+  color: #000;
 }
 .search-box input {
   border: 0;
@@ -554,11 +606,11 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 10px;
   background: white;
-  color: #5d5e5a;
+  color: #000;
 }
 .publication-group-title {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 800;
   margin: 44px 0 22px 0;
   padding-bottom: 11px;
   /* border-bottom: 2px solid #e0e0e0; */
@@ -567,7 +619,7 @@ h2 {
   margin-top: 0;
 }
 .publication-list {
-  border-top: 0px solid #5d5e5a;
+  border-top: 0px solid #000;
 }
 .publication {
   display: grid;
@@ -578,7 +630,7 @@ h2 {
 }
 .pub-year {
   font-size: 1rem;
-  color: #5d5e5a;
+  color: #000;
   padding-top: 3px;
 }
 .pub-title {
@@ -586,7 +638,7 @@ h2 {
   font-size: 1rem;
   line-height: 1.35;
   letter-spacing: -0.02em;
-  font-weight: 700;
+  font-weight: 800;
   max-width: 800px;
 }
 .pub-authors {
@@ -597,7 +649,7 @@ h2 {
 }
 .pub-venue {
   margin-top: 7px;
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
   font-style: italic;
 }
@@ -617,7 +669,7 @@ h2 {
 .loading,
 .empty {
   padding: 35px 0;
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
 }
 
@@ -626,7 +678,7 @@ h2 {
   border-bottom: 1px solid var(--line);
 }
 .recruitment-hero .lead {
-  max-width: 700px;
+  max-width: 100%;
 }
 .opening-grid {
   display: grid;
@@ -655,14 +707,14 @@ h2 {
   margin-top: 60px;
 }
 .opening p {
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
   margin: 17px 0;
 }
 .opening ul {
   padding-left: 17px;
   margin: 25px 0 0;
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
 }
 .opening li {
@@ -709,11 +761,11 @@ h2 {
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
 }
 .site-footer strong {
-  color: #5d5e5a;
+  color: #000;
   font-size: 1rem;
 }
 .site-footer p {
@@ -739,7 +791,7 @@ code {
   font-size: 1rem;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1024px) {
   .site-header {
     height: 68px;
     padding: 0 17px;
@@ -779,13 +831,14 @@ code {
     min-height: auto;
     gap: 45px;
   }
-  .hero-visual {
-    width: 100%;
-    aspect-ratio: auto;
-  }
   .section-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+  .publication-grid {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    grid-template-rows: none;
   }
   .research-cards {
     grid-template-columns: 1fr;
@@ -823,10 +876,6 @@ code {
 
   main {
     padding: 0 17px;
-  }
-  .hero h1,
-  .recruitment-hero h1 {
-    font-size: 1rem;
   }
   .member-card {
     flex-direction: column;
