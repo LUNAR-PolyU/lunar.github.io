@@ -831,6 +831,9 @@ code {
     min-height: auto;
     gap: 45px;
   }
+  .hero-visual {
+    width: 50%;
+  }
   .section-grid {
     grid-template-columns: 1fr;
     gap: 30px;
