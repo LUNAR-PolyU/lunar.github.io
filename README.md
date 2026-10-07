@@ -1,6 +1,6 @@
-# Research Group Academic Homepage
+# LUNAR academic homepage
 
-A modern, single-page academic website designed for GitHub Pages.
+An academic website designed for LUNAR group.
 
 ## Folder structure
 
@@ -11,7 +11,20 @@ A modern, single-page academic website designed for GitHub Pages.
     ├── style.css
     ├── main.js
     ├── publications.js
-    └── publications.bib
+    ├── publications.bib
+    └── Background/
+    │   ├── xxx.gif
+    │   ├── xxx.png
+    │   ├── xxx.jpg
+    │   └── ...
+    └── Headshots/
+    │   ├── xxx.png
+    │   ├── xxx.jpg
+    │   └── ...
+    └── Logos/
+        ├── xxx.png
+        ├── xxx.jpg
+        └── ...
 ```
 
 All external assets/files are kept in `file/`.
@@ -48,9 +61,10 @@ To use actual portraits, place images in `file/`, for example:
 
 ```text
 file/
-├── prof.jpg
-├── member01.jpg
-└── member02.jpg
+└── Headshots/
+    ├── xxx.png
+    ├── xxx.jpg
+    └── ...
 ```
 
 Then replace:
@@ -62,7 +76,7 @@ Then replace:
 with:
 
 ```html
-<img class="avatar" src="file/prof.jpg" alt="Professor Name">
+<img class="avatar" src="file/Headshots/xxx.jpg" alt="Professor Name">
 ```
 
 ### 3. Publications
