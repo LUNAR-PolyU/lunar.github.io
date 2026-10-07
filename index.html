@@ -10,12 +10,13 @@
   <script defer src="./file/publications.js"></script>
   <script defer src="./file/main.js"></script>
   <link rel="icon" href="./file/Logos/logo3.png" type="image/png">
+  <base target="_blank">
 </head>
 
 <body>
   <header class="site-header">
     <div class="brand-container">
-      <a class="brand-poly" href="https://polyu.edu.hk" target="_blank" rel="noopener noreferrer"
+      <a class="brand-poly" href="https://polyu.edu.hk" rel="noopener noreferrer"
         aria-label="The Hong Kong Polytechnic University home">
         <img src="./file/Logos/polyu-logo.png" alt="PolyU Logo" class="brand-logo">
       </a>
@@ -26,11 +27,11 @@
     <!-- <span>Lunar</span> -->
     </a>
     <nav class="nav" aria-label="Main navigation">
-      <a class="nav-link active" href="#home" data-page="home">Home</a>
-      <a class="nav-link" href="#members" data-page="members">Members</a>
-      <a class="nav-link" href="#publications" data-page="publications">Publications</a>
-      <a class="nav-link" href="#fundings" data-page="fundings">Fundings</a>
-      <a class="nav-link" href="#recruitment" data-page="recruitment">Recruitment</a>
+      <a class="nav-link active" href="#home" data-page="home" target="_self">Home</a>
+      <a class="nav-link" href="#members" data-page="members" target="_self">Members</a>
+      <a class="nav-link" href="#publications" data-page="publications" target="_self">Publications</a>
+      <!-- <a class="nav-link" href="#fundings" data-page="fundings" target="_self">Fundings</a> -->
+      <a class="nav-link" href="#recruitment" data-page="recruitment" target="_self">Recruitment</a>
     </nav>
     <button class="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
   </header>
@@ -40,103 +41,174 @@
     <section class="page active" id="home">
       <div class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">LUNAR</p>
-          <!-- <h1>Low-altitude UAS noise and annoyance research group<br><br><span>Engineering quieter flight.</span></h1> -->
-          <h1>Low-altitude UAS noise and annoyance research group</h1>
-          <p class="lead">
-            We study aerodynamics, aeroacoustics, rotorcraft,
-            computational methods, and AI-driven methodologies
-            to understand and control noise generated
-            by next-generation flight systems.
+          <h1>Low-altitude UAS noise and annoyance research (LUNAR) group</h1>
+          <p>
+            Led by <a href="#members" data-page="members" class="academic-link navigate" target="_self">Prof. Siyang
+              Zhong</a>, LUNAR group is based in the <a href="https://www.polyu.edu.hk/aae/"
+              class="academic-link navigate">Department of Aeronautical and
+              Aviation
+              Engineering</a> at <a href="https://www.polyu.edu.hk/" class="academic-link navigate">The Hong Kong
+              Polytechnic University</a>.
+            We are dedicated to advancing the understanding and control of unmanned aircraft systems (UAS)
+            aerodynamic noise. We develop physics-based prediction models, perform high-fidelity simulations, and
+            conduct experiments to capture the complex flow physics and acoustic signatures of UAS propulsion systems,
+            ranging from conventional drone to electric vertical take-off and landing (eVTOL) aircraft and urban air
+            mobility (UAM) platforms.
+          </p>
+          <p>
+            Our goal is to translate fundamental knowledge into actionable insights for quieter, more efficient, and
+            more sustainable low-altitude aerial transportation. Beyond engineering solutions, we also investigate the
+            human
+            perception of rotor noise through annoyance studies, bridging acoustics with community impact. Ultimately,
+            we aim to make future urban air transport not only possible, but also socially acceptable to the communities
+            it serves.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#publications">Explore our research</a>
-            <a class="button secondary" href="#recruitment">Join the group →</a>
+            <a class="button primary" href="#publications" target="_self">Explore our research</a>
+            <a class="button secondary" href="#recruitment" target="_self">Join the group →</a>
           </div>
         </div>
-        <!-- <div class="hero-visual" aria-hidden="true">
-          <div class="orb orb-1"></div>
-          <div class="orb orb-2"></div>
-          <div class="grid-plane"></div>
-          <div class="visual-label">FLOW / SOUND / MOTION</div>
-        </div> -->
+      </div>
+
+
+      <h1>Research interests</h1>
+      <div class="section-grid intro-grid">
+        <div>
+          <div class="hero-visual" aria-hidden="true">
+            <img src="./file/Background/Turbulence.gif" alt="Turbulence" class="hero-gif">
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Turbulent inflow interaction with rotor</p>
+          <p>
+            Utilizing synthetic turbulence within high-fidelity simulations, we model the acoustic characteristics of
+            rotors operating in complex urban wind fields. As shown from left to right, incoming turbulence from the
+            generation region interacts with the rotor wake, causing the tip vortices to lose their symmetry, deform
+            rapidly, and break down.
+          </p>
+          <div class="publication-grid">
+            <a href="https://doi.org/10.2514/6.2026-3419" class="academic-link navigate">Bi <i>et
+                al.</i>
+              (AIAA paper 2026-3419)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-grid intro-grid">
+        <div class="hero-visual dual-stream" aria-hidden="true">
+          <img src="./file/Background/Ground effects 1.gif" alt="Urban" class="hero-gif">
+          <img src="./file/Background/Ground effects 2.gif" alt="Urban" class="hero-gif">
+        </div>
+        <div>
+          <p class="eyebrow"> Ground effects</p>
+          <p>
+            Computational aeroacoustics of rotor drones based on CFD typically involves solving the unsteady N-S
+            equations with high-fidelity turbulence models to capture the complex flow field, followed by acoustic
+            analogy methods to predict far-field noise radiation. The presence of the ground surface introduces
+            significant aerodynamic and acoustic modifications: the rotor wake causes enhanced vortex-ground
+            interactions and generates jet flow near the ground, which not only alters thrust and power characteristics
+            but also intensifies noise generation. Accurate CFD-based aeroacoustic prediction in ground effect is
+            essential for assessing community noise impact and optimizing rotor design for urban air mobility scenarios.
+          </p>
+          <div class="publication-grid">
+            <a href="https://doi.org/10.1016/j.ast.2025.111045" class="academic-link navigate">Chen <i>et
+                al.</i>
+              (<i>Aerosp. Sci. Technol.</i> 2026)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-grid intro-grid">
+        <div class="hero-visual dual-stream" aria-hidden="true">
+          <img src="./file/Background/Prediction 1.gif" alt="Predictions" class="hero-gif">
+          <img src="./file/Background/Prediction 2.gif" alt="Predictions" class="hero-gif">
+        </div>
+        <div>
+          <p class="eyebrow">Physics-based prediction models</p>
+          <p>
+            We establish physics-based prediction models by using aerodynamic theories to predict wake dynamics and
+            rotor loadings, which subsequently serve as the foundation for computing both tonal and broadband noise
+            radiation. Using these physical models, our research includes diverse flight states, including hover
+            and forward flight, as well as coaxial rotor configurations, installation effects, and transitional
+            maneuvers.
+          </p>
+          <div class="publication-grid">
+            <a href="http://dx.doi.org/10.1017/jfm.2022.1097" class="academic-link navigate">Zhong <i>et al.</i> (<i>J.
+                Fluid Mech.</i> 2023)</a>
+            <a href="http://dx.doi.org/10.1016/j.jsv.2022.117487" class="academic-link navigate">Zhong <i>et al.</i>
+              (<i>J.
+                Sound Vib.</i> 2023)</a>
+            <a href="http://dx.doi.org/10.2514/1.j064974" class="academic-link navigate">Wu <i>et al.</i> (<i>AIAA
+                J.</i>
+              2025)</a>
+            <a href="http://dx.doi.org/10.1016/j.jsv.2025.119038" class="academic-link navigate">Zhong <i>et al.</i>
+              (<i>J.
+                Sound Vib.</i> 2025)</a>
+            <a href="http://dx.doi.org/10.2514/1.j064851" class="academic-link navigate">Wang <i>et al.</i> (<i>AIAA
+                J.</i>
+              2025)</a>
+            <a href="http://dx.doi.org/10.1016/j.ast.2026.112233" class="academic-link navigate">Wang <i>et al.</i>
+              (<i>Aerosp. Sci. Technol.</i> 2026)</a>
+            <a href="http://dx.doi.org/10.1016/j.jsv.2026.119976" class="academic-link navigate">Wang <i>et al.</i>
+              (<i>J.
+                Sound Vib.</i> 2026)</a>
+            <a href="http://dx.doi.org/10.2514/6.2026-3345" class="academic-link navigate">Wang <i>et al.</i> (AIAA
+              paper
+              2026-3345)</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="section-grid intro-grid">
         <div class="hero-visual" aria-hidden="true">
-          <img src="./file/Background/Installation_10deg_compressed.gif" alt="Installation 10 degrees visualization"
-            class="hero-gif">
+          <img src="./file/Background/Barrier.png" alt="Urban" class="hero-gif">
+        </div>
+        <div>
+          <p class="eyebrow"> Noise barriers for vertiport</p>
+          <p>
+            This study presents an optimized design of noise barriers for vertiport environments, employing a
+            frequency-domain acoustic computational method within a surrogate-based optimization process. Low-noise
+            curved noise barriers are specifically designed to attenuate the overall noise emissions generated by UAV
+            operations near the ground, with the curved geometry tailored to enhance interference and diffraction
+            performance across the relevant frequency spectrum. Both on-ground and rooftop vertiport environments are
+            considered, and the proposed low-noise curved noise barriers can surpass the noise reduction performance of
+            taller baseline noise barriers.
+          </p>
+          <div class="publication-grid">
+            <a href="http://dx.doi.org/10.1016/j.rineng.2026.112109" class="academic-link navigate">Chen <i>et
+                al.</i>
+              (<i>Results Eng.</i> 2026)</a>
+          </div>
         </div>
       </div>
 
       <div class="section-grid intro-grid">
         <div>
-          <p class="eyebrow">About the group</p>
-          <h2_home>Research at the intersection of fluid mechanics and sound.</h2_home>
+          <div class="hero-visual" aria-hidden="true">
+            <img src="./file/Background/Urban.gif" alt="Urban" class="hero-gif">
+          </div>
         </div>
-        <div class="text-block">
+        <div>
+          <p class="eyebrow"> Drone noise psychoacoustic evaluation</p>
           <p>
-            Based in the Department of Aeronautical and Aviation Engineering at The Hong Kong Polytechnic University,
-            our group is dedicated to advancing the understanding and control of unmanned aircraft systems (UAS)
-            aerodynamic noise. We develop physics-based prediction models, perform high-fidelity simulations, and
-            conduct experiments to capture the complex flow physics and acoustic signatures of UAS propulsion systems:
-            from conventional drone rotors to electric vertical take-off and landing (eVTOL) aircraft and urban air
-            mobility (UAM) platforms. In parallel, we integrate machine learning and data-driven techniques into our
-            modelling pipeline, enabling faster and more robust predictions across broad parameter spaces.
+            We bring drone noise into virtual reality. Powered by computational aeroacoustics prediction models and
+            experimental data, we synthesize hybrid tonal and broadband noise sources, incorporate scenario-adapted
+            propagation physics, and deploy spatial audio rendering to deliver interactive, auditory VR environments for
+            psychoacoustic evaluation.
           </p>
-          <p>
-            Our goal is to translate fundamental knowledge into actionable insights for quieter, more efficient, and
-            more sustainable urban aerial vehicles. Beyond engineering solutions, we also investigate the human
-            perception of rotor noise through annoyance studies, bridging acoustics with community impact. Ultimately,
-            we aim to make future urban air transport not only possible, but also socially acceptable to the communities
-            it serves.
-          </p>
+          <div class="publication-grid">
+            <a href="http://dx.doi.org/10.2514/6.2026-3315" class="academic-link navigate">Li <i>et al.</i> (AIAA paper
+              2026-3315)</a>
+          </div>
         </div>
-      </div>
-
-      <div class="research-cards">
-        <article class="research-card">
-          <span class="card-number">01</span>
-          <h3>Unsteady Aerodynamics</h3>
-          <p>Rotor aerodynamics, wake dynamics, blade–wake interaction, and flow-induced loads.</p>
-        </article>
-        <article class="research-card">
-          <span class="card-number">02</span>
-          <h3>Aeroacoustics</h3>
-          <p>Physical mechanisms of tonal and broadband noise and advanced acoustic analogies.</p>
-        </article>
-        <article class="research-card">
-          <span class="card-number">03</span>
-          <h3>Computational methods</h3>
-          <p>High-fidelity simulation, turbulence modelling, and acoustic prediction.</p>
-        </article>
-        <article class="research-card">
-          <span class="card-number">04</span>
-          <h3>Psychoacoustics</h3>
-          <p>Psychoacoustic metrics, perceptual modelling, and subjective evaluation of rotor noise.</p>
-        </article>
-        <article class="research-card">
-          <span class="card-number">05</span>
-          <h3>AI-enhanced aeroacoustics</h3>
-          <p>Machine learning for surrogate modelling, flow-acoustic source identification, and data-driven prediction.
-          </p>
-        </article>
-        <article class="research-card">
-          <span class="card-number">06</span>
-          <h3>Next-generation flight</h3>
-          <p>Quiet propulsion and aerodynamic technologies for UAS.</p>
-        </article>
-      </div>
-
-      <div class="quote-band">
-        <p>“The future of aeroacoustics and flow-induced noise research will be shaped by the young minds.”</p>
-        <span>— LUNAR group</span>
       </div>
     </section>
 
     <!-- MEMBERS -->
     <section class="page" id="members">
       <div class="page-heading">
-        <p class="eyebrow">PEOPLE</p>
         <h1>Members</h1>
-        <p>Meet the researchers working on the next generation of aerodynamic and acoustic technologies.</p>
       </div>
 
       <div class="members-grid">
@@ -159,15 +231,18 @@
                 class="academic-link scopus">
                 Scopus
               </a>
+              <a href="https://www.polyu.edu.hk/aae/people/academic-staff/dr-zhong-siyang/" target="_blank"
+                class="academic-link scopus">
+                PolyU link
+              </a>
             </div>
           </div>
           <div class="member-info">
-            <span class="role">Group leader</span>
+            <span class="role">Principal investigator</span>
             <h2>Prof. Siyang Zhong</h2>
-            <p>Assistant Professor</p>
-            <p class="muted">BSc (Peking University), MEng (Peking University), PhD (HKUST), MHKIE, MRAeS</p>
-
-            <p class="muted">
+            <p2>Assistant Professor</p2>
+            <p>BSc (Peking University), MEng (Peking University), PhD (HKUST), MHKIE, MRAeS</p>
+            <p>
               Prof. Siyang Zhong is currently an Assistant Professor at AAE, PolyU. Before joining the Department, he
               worked as a Research Assistant Professor at the Hong Kong University of Science and Technology (HKUST)
               with a junior fellowship at HKUST Jockey Club Institute for Advanced Study. He studied at Peking
@@ -175,6 +250,21 @@
               his PhD Degree in Mechanical Engineering at HKUST in 2018. He is interested in the fundamental studies of
               aeroacoustics, aerodynamics, and their applications to practical engineering problems. He works in several
               working groups to develop national and international standards for the unmanned aircraft system.
+            </p>
+            <p2>
+              Research interests:
+            </p2>
+            <p>
+              Aeroacoustics & aerodynamics, aircraft noise, sustainable and green aviation of unmanned aircraft systems,
+              high-performance computing, environmental noise and reduction, sports aerodynamics.
+            </p>
+            <p2>
+              Teaching:
+            </p2>
+            <p>
+              AAE2003 Introduction to aircraft systems<br>
+              AAE3008 Fundamentals of thermal-fluid science<br>
+              AAE5201 Aerodynamics and computational fluid dynamics<br>
             </p>
             <a href="mailto:siyang.zhong@polyu.edu.hk" target="_blank" class="academic-link email">
               siyang.zhong@polyu.edu.hk
@@ -198,7 +288,7 @@
           <div class="member-info">
             <span class="role">Postdoctoral fellow</span>
             <h2>Dr. Sinforiano Cantos</h2>
-            <p class="muted">
+            <p>
               Dr. Sinforiano Cantos is a Postdoctoral Fellow in the Department of Aeronautical and Aviation Engineering
               (AAE) at PolyU. His current research focuses on developing high-order computational aeroacoustics methods
               to investigate the flow physics and associated noise around complex bodies for various applications. He
@@ -227,7 +317,7 @@
           <div class="member-info">
             <span class="role">Postdoctoral fellow</span>
             <h2>Dr. Han Wu</h2>
-            <p class="muted">
+            <p>
               Dr. Han Wu is a postdoctoral fellow in Prof. Siyang Zhong's group. His research focuses on the analytical
               prediction and experimental measurement of rotor blade aeroacoustics, in particular the broadband noise
               generated from interactions with turbulence. He is also interested in human perception of noise from
@@ -245,7 +335,7 @@
           <div class="member-info">
             <span class="role">Ph.D. Candidate</span>
             <h2>Mr. Qidong Chen</h2>
-            <p class="muted">
+            <p>
               Mr. Qidong Chen received his bachelor's and master's degrees from the School of Power and Energy at
               Northwestern Polytechnical University. In the fall of 2023, he joined the LUNAR lab as a Ph.D. student.
               His
@@ -271,7 +361,7 @@
           <div class="member-info">
             <span class="role">Ph.D. Candidate</span>
             <h2>Mr. Zimo Wang</h2>
-            <p class="muted">
+            <p>
               Mr. Zimo Wang is a Ph.D. candidate in the Department of Aeronautical and Aviation Engineering at The Hong
               Kong Polytechnic University. He received his M.Sc. in mechanical engineering from the National University
               of Singapore (NUS) in 2023. His research focuses on aerodynamics and aeroacoustics, particularly for
@@ -295,7 +385,7 @@
           <div class="member-info">
             <span class="role">Ph.D. Student</span>
             <h2>Ms. Yufan Bi</h2>
-            <p class="muted">
+            <p>
               Ms. BI Yufan received her B.Eng. and M.Sc. degrees in aerodynamics from the School of Aeronautics at
               Northwestern Polytechnical University. She is currently a Ph.D. candidate in aeronautical and aviation
               engineering at The Hong Kong Polytechnic University. Her research interests include aerodynamics and
@@ -317,7 +407,7 @@
           <div class="member-info">
             <span class="role">Ph.D. Student</span>
             <h2>Ms. Jinyu Li</h2>
-            <p class="muted">
+            <p>
               Ms. Jinyu Li earned her bachelor's and master's degrees from the College of Underwater Acoustic
               Engineering at Harbin Engineering University. She is currently a Ph.D. student in the Department of
               Aeronautical and Aviation Engineering at The Hong Kong Polytechnic University. Her research interests
@@ -339,7 +429,7 @@
           <div class="member-info">
             <span class="role">Ph.D. Student</span>
             <h2>Mr. Guangze Liu</h2>
-            <p class="muted">
+            <p>
               Hi, I'm Guangze Liu, from mainland China, and I'm currently a first-year PhD student in the group. My
               research focuses on wake-flow simulation based on the vortex particle method, particularly for rotor and
               propeller aerodynamics.
@@ -360,7 +450,7 @@
           <div class="member-info">
             <span class="role">Ph.D. Student</span>
             <h2>Mr. Yanhong Lu</h2>
-            <p class="muted">
+            <p>
               Mr. Yanhong Lu received his bachelor's and master's degrees from Tongji University in 2022 and 2025. He is
               currently a Ph.D. student in Aeronautical and Aviation Engineering at The Hong Kong Polytechnic
               University. His research interests include noise reduction of UAVs and machine-learning-based aeroacoustic
@@ -383,7 +473,7 @@
           <div class="member-info">
             <span class="role">Ph.D. Student</span>
             <h2>Mr. Xuheng Wang</h2>
-            <p class="muted">
+            <p>
               Mr. Xuheng Wang received his bachelor's and master's degrees from Northwestern Polytechnical University in
               2023 and 2026. He is currently a Ph.D. student in Aeronautical and Aviation Engineering at The Hong Kong
               Polytechnic University. His research interests include nearfield acoustic holography based sound source
@@ -405,7 +495,7 @@
           <div class="member-info">
             <span class="role">Research assistant</span>
             <h2>Mr. Bo Han</h2>
-            <p class="muted">
+            <p>
               Mr. Bo Han received his B.Eng. degree from the School of Aeronautics and Astronautics at Sichuan
               University and his M.Sc. degree in Aeronautical Engineering from The Hong Kong University of Science and
               Technology. He joined the group as a research assistant in June 2026. His research interests include UAV
@@ -428,7 +518,7 @@
           <div class="member-info">
             <span class="role">Research assistant</span>
             <h2>Mr. Wentao Guo</h2>
-            <p class="muted">
+            <p>
               Mr. Wentao Guo received his B.Eng. and M.Eng. degrees from the College of Civil Aviation, Nanjing
               University of Aeronautics and Astronautics (NUAA). He joined the group as a research assistant in May
               2026. His research focuses on the numerical computation of propeller wakes and the development of machine
@@ -452,9 +542,7 @@
     <section class="page" id="publications">
       <div class="page-heading publication-heading">
         <div>
-          <p class="eyebrow">RESEARCH OUTPUT</p>
           <h1>Publications</h1>
-          <p>Selected publications from our group.</p>
         </div>
         <a class="button secondary small" href="./file/publications.bib" download>Download BibTeX</a>
       </div>
@@ -476,82 +564,57 @@
 
 
     <!-- FUNDINGS -->
-    <section class="page" id="fundings">
-      <div class="page-heading">
-        <p class="eyebrow">FUNDINGS</p>
-        <h1>Fundings</h1>
-        <p>Research projects and grants that support our group's work.</p>
-      </div>
+    <!-- <section class="page" id="fundings"> -->
+    <!-- <div class="page-heading"> -->
+    <!-- <p class="eyebrow">FUNDINGS</p> -->
+    <!-- <h1>Fundings</h1> -->
+    <!-- <p>Research projects and grants that support our group's work.</p> -->
+    <!-- </div> -->
 
-      <!-- Fundings list -->
-      <div class="publication-list" id="funding-list">
-        <!-- Funding q -->
-        <article class="publication">
-          <div class="pub-year">2025–2027</div>
-          <div>
-            <h2 class="pub-title">xxx</h2>
-            <p class="pub-authors">Nxxxx – Grant No. xxx</p>
-            <div class="pub-venue">PI: Prof. xxx</div>
-          </div>
-          <!-- Links -->
-          <!-- <a class="pub-link" href="#" target="_blank">Project page ↗</a> -->
-        </article>
-      </div>
-    </section>
+    <!-- Fundings list -->
+    <!-- <div class="publication-list" id="funding-list"> -->
+    <!-- Funding q -->
+    <!-- <article class="publication"> -->
+    <!-- <div class="pub-year">2025–2027</div> -->
+    <!-- <div> -->
+    <!-- <h2 class="pub-title">xxx</h2> -->
+    <!-- <p class="pub-authors">Nxxxx – Grant No. xxx</p> -->
+    <!-- <div class="pub-venue">PI: Prof. xxx</div> -->
+    <!-- </div> -->
+    <!-- Links -->
+    <!-- <a class="pub-link" href="#" target="_blank">Project page ↗</a> -->
+    <!-- </article> -->
+    <!-- </div> -->
+    <!-- </section> -->
 
     <!-- RECRUITMENT -->
     <section class="page" id="recruitment">
-      <div class="recruitment-hero">
-        <p class="eyebrow">OPPORTUNITIES</p>
-        <h1>We are looking for<br><span>curious minds.</span></h1>
-        <p class="lead">
-          We welcome motivated researchers who are excited about fundamental
-          questions in fluid mechanics, aeroacoustics, and emerging flight systems.
-        </p>
+      <div class="page-heading">
+        <h1>Recruitment</h1>
       </div>
 
       <div class="opening-grid">
         <article class="opening">
           <div class="opening-top">
-            <span class="opening-type">Ph.D</span>
-            <span class="opening-status">OPEN (Sep. 2026)</span>
+            <span class="opening-type">Ph.D. students</span>
+            <span class="opening-status">OPEN (Fall 2027)</span>
           </div>
-          <h2>Ph.D. students</h2>
           <p>
-            We are interested in candidates with backgrounds in aerospace
-            engineering, mechanical engineering, fluid mechanics, acoustics,
-            computational science, or related fields.
+            We are interested in candidates with backgrounds in:
           </p>
           <ul>
-            <li>Unsteady rotor aerodynamics</li>
-            <li>Aeroacoustic prediction and modelling</li>
-            <li>Computational fluid dynamics</li>
-            <li>eVTOL and advanced propulsion</li>
+            <li>Fluid mechanics</li>
+            <li>Aerodynamics and aeroacoustics</li>
+            <li>Aeronautics and aviation</li>
+            <li>Physics</li>
+            <li>Applied mathematics</li>
           </ul>
         </article>
-
-        <!-- <article class="opening">
-          <div class="opening-top">
-            <span class="opening-type">RESEARCH</span>
-            <span class="opening-status">OPEN (Sep. 2026)</span>
-          </div>
-          <h2>Research assistants</h2>
-          <p>
-            Opportunities are available for students interested in numerical
-            simulation, experimental aerodynamics, acoustics, and scientific computing.
-          </p>
-          <ul>
-            <li>Strong programming skills</li>
-            <li>Interest in research</li>
-            <li>Python / MATLAB / Julia / C++</li>
-            <li>Good scientific communication</li>
-          </ul>
-        </article> -->
       </div>
 
       <div class="application">
         <div>
-          <p class="eyebrow">HOW TO APPLY</p>
+          <!-- <p class="eyebrow">HOW TO APPLY</p> -->
           <h2>Interested in joining us?</h2>
           <p>
             Please send a short introduction, CV, academic transcripts, and a
@@ -561,6 +624,12 @@
         <a class="button primary" href="mailto:siyang.zhong@polyu.edu.hk">Get in
           touch →</a>
       </div>
+      <notes>Declaration:<br>
+        Prof. Zhong has never authorized any third-party social media to post the opening opportunities. If you are
+        interested in the positions and academic communications and want to know more details, please contact Prof.
+        Zhong
+        via email directly. Thanks.
+      </notes>
     </section>
   </main>
 
@@ -571,10 +640,7 @@
       <p>The Hong Kong Polytechnic University</p>
     </div>
     <div class="footer-right">
-      <span>© <span id="year">2026</span> LUNAR | by
-        <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet'>
-        <a href="https://github.com/ZimoJupiter" target="_blank" class="link-buttons"
-          style="font-family: 'Tangerine'; font-size: 24px"> Zimo Wang </a>
+      <span>© <span id="year">2026</span> LUNAR
     </div>
   </footer>
 </body>
