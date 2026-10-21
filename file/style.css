@@ -229,7 +229,7 @@ main {
   /* height: 470px; */
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 28px;
+  /* border-radius: 28px; */
   background: #ffffff;
   isolation: isolate;
 }
@@ -238,7 +238,7 @@ main {
   height: 100%;
   object-fit: cover;
   /* max-width: 600px;  */
-  border-radius: 8px;
+  /* border-radius: 8px; */
   /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);  */
 }
 .hero-visual.dual-stream {
@@ -246,7 +246,7 @@ main {
   /* height: 470px; */
   aspect-ratio: 4 / 6;
   overflow: hidden;
-  border-radius: 28px;
+  /* border-radius: 28px; */
   background: #ffffff;
   isolation: isolate;
   display: flex;
@@ -414,7 +414,7 @@ h2 {
 .member-card {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  /* border-radius: var(--radius); */
   padding: 20px;
   display: flex;
   gap: 22px;
@@ -428,7 +428,7 @@ h2 {
   width: 150px;
   min-width: 150px;
   height: 180px;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   overflow: hidden;
   background: #000;
 }
@@ -454,7 +454,7 @@ h2 {
   width: 210px;
   height: 280px;
   object-fit: cover;
-  border-radius: 15%;
+  /* border-radius: 15%; */
   border: 2px solid #ccc;
 }
 .left-column {
@@ -467,7 +467,7 @@ h2 {
   width: 150px;
   height: 200px;
   object-fit: cover;
-  border-radius: 15%;
+  /* border-radius: 15%; */
   border: 2px solid #ccc;
 }
 .academic-links {
@@ -553,6 +553,9 @@ h2 {
   text-underline-offset: 4px;
 }
 .alumni {
+  clear: both;
+  width: 100%;
+  display: block;
   margin-top: 75px;
   border-top: 1px solid var(--line);
   padding-top: 30px;
