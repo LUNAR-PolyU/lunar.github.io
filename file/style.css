@@ -627,7 +627,7 @@ h2 {
 }
 .publication {
   display: grid;
-  grid-template-columns: 90px 1fr 80px;
+  grid-template-columns: 90px 1fr auto;
   gap: 25px;
   padding: 10px 0;
   border-bottom: 1px solid var(--line);
@@ -638,12 +638,13 @@ h2 {
   padding-top: 3px;
 }
 .pub-title {
+  display: block;
   margin: 0;
   font-size: 1rem;
   line-height: 1.35;
   letter-spacing: -0.02em;
   font-weight: 800;
-  max-width: 800px;
+  max-width: 100%;
 }
 .pub-authors {
   margin: 7px 0 0;
