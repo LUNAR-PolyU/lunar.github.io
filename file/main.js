@@ -26,11 +26,13 @@ function route() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.addEventListener("hashchange", route);
-  route();
-
   const menuButton = document.querySelector(".menu-button");
   const nav = document.querySelector(".nav");
+
+  function closeMenu() {
+    nav?.classList.remove("open");
+    menuButton?.setAttribute("aria-expanded", "false");
+  }
 
   menuButton?.addEventListener("click", () => {
     const open = nav.classList.toggle("open");
@@ -38,8 +40,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", () => nav.classList.remove("open"));
+    link.addEventListener("click", closeMenu);
   });
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+  document.addEventListener("click", (e) => {
+    if (
+      nav?.classList.contains("open") &&
+      !nav.contains(e.target) &&
+      !menuButton?.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  if (document.getElementById("home")) {
+    window.addEventListener("hashchange", route);
+    route();
+  }
 });
