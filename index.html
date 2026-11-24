@@ -83,7 +83,8 @@
 
       <div class="section-grid intro-grid">
         <div class="hero-visual" aria-hidden="true">
-          <video src="./file/Background/CAA1.mp4" class="hero-gif" autoplay loop muted playsinline>
+          <video src="./file/Background/CAA1.mp4" class="hero-gif" autoplay loop muted playsinline webkit-playsinline
+            x5-playsinline x5-video-player-type="h5" preload="auto">
           </video>
         </div>
         <div>
@@ -105,7 +106,8 @@
       <div class="section-grid intro-grid">
         <div>
           <div class="hero-visual" aria-hidden="true">
-            <video src="./file/Background/eVTOL 1.mp4" class="hero-gif" autoplay loop muted playsinline>
+            <video src="./file/Background/eVTOL 1.mp4" class="hero-gif" autoplay loop muted playsinline
+              webkit-playsinline x5-playsinline x5-video-player-type="h5" preload="auto">
             </video>
           </div>
         </div>
@@ -130,7 +132,8 @@
       <div class="section-grid intro-grid">
         <div>
           <div class="hero-visual" aria-hidden="true">
-            <video src="./file/Background/Turbulence.mp4" class="hero-gif" autoplay loop muted playsinline>
+            <video src="./file/Background/Turbulence.mp4" class="hero-gif" autoplay loop muted playsinline
+              webkit-playsinline x5-playsinline x5-video-player-type="h5" preload="auto">
             </video>
           </div>
         </div>
@@ -151,7 +154,8 @@
 
       <div class="section-grid intro-grid">
         <div class="hero-visual" aria-hidden="true">
-          <video src="./file/Background/Ground effects 1.mp4" class="hero-gif" autoplay loop muted playsinline>
+          <video src="./file/Background/Ground effects 1.mp4" class="hero-gif" autoplay loop muted playsinline
+            webkit-playsinline x5-playsinline x5-video-player-type="h5" preload="auto">
           </video>
         </div>
         <div>
@@ -177,7 +181,8 @@
 
       <div class="section-grid intro-grid">
         <div class="hero-visual" aria-hidden="true">
-          <video src="./file/Background/Prediction 2.mp4" class="hero-gif" autoplay loop muted playsinline>
+          <video src="./file/Background/Prediction 2.mp4" class="hero-gif" autoplay loop muted playsinline
+            webkit-playsinline x5-playsinline x5-video-player-type="h5" preload="auto">
           </video>
         </div>
         <div>
@@ -715,6 +720,24 @@
 
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const video = document.getElementById('heroVideo');
+      if (!video) return;
+
+      function forcePlay() {
+        video.muted = true;
+        video.play().catch(function () {
+          document.addEventListener('touchstart', function () {
+            video.play();
+          }, { once: true });
+        });
+      }
+      forcePlay();
+      document.addEventListener('WeixinJSBridgeReady', forcePlay, false);
+    })();
+  </script>
 </body>
 
 </html>

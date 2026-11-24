@@ -53,9 +53,11 @@
                     maneuvers.
                 </p>
                 <div class="hero-visual subpage" aria-hidden="true">
-                    <video src="../Background/Prediction 1.mp4" class="hero-gif" autoplay loop muted playsinline>
+                    <video src="../Background/Prediction 1.mp4" class="hero-gif" autoplay loop muted playsinline
+                        webkit-playsinline x5-playsinline x5-video-player-type="h5" preload="auto">
                     </video>
-                    <video src="../Background/Prediction 2.mp4" class="hero-gif" autoplay loop muted playsinline>
+                    <video src="../Background/Prediction 2.mp4" class="hero-gif" autoplay loop muted playsinline
+                        webkit-playsinline x5-playsinline x5-video-player-type="h5" preload="auto">
                     </video>
                 </div>
                 <p>
@@ -84,6 +86,24 @@
 
         </div>
     </footer>
+
+    <script>
+        (function () {
+            const video = document.getElementById('heroVideo');
+            if (!video) return;
+
+            function forcePlay() {
+                video.muted = true;
+                video.play().catch(function () {
+                    document.addEventListener('touchstart', function () {
+                        video.play();
+                    }, { once: true });
+                });
+            }
+            forcePlay();
+            document.addEventListener('WeixinJSBridgeReady', forcePlay, false);
+        })();
+    </script>
 </body>
 
 </html>

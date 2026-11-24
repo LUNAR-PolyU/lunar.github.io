@@ -59,7 +59,8 @@
                     scenarios.
                 </p>
                 <div class="hero-visual subpage" aria-hidden="true">
-                    <video src="../Background/Ground effects 1.mp4" class="hero-gif" autoplay loop muted playsinline>
+                    <video src="../Background/Ground effects 1.mp4" class="hero-gif" autoplay loop muted playsinline
+                        webkit-playsinline x5-playsinline x5-video-player-type="h5" preload="auto">
                     </video>
                     <img src="../Background/Ground effects 3.png" alt="GE" class="hero-gif">
                 </div>
@@ -89,6 +90,24 @@
 
         </div>
     </footer>
+
+    <script>
+        (function () {
+            const video = document.getElementById('heroVideo');
+            if (!video) return;
+
+            function forcePlay() {
+                video.muted = true;
+                video.play().catch(function () {
+                    document.addEventListener('touchstart', function () {
+                        video.play();
+                    }, { once: true });
+                });
+            }
+            forcePlay();
+            document.addEventListener('WeixinJSBridgeReady', forcePlay, false);
+        })();
+    </script>
 </body>
 
 </html>
