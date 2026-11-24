@@ -74,24 +74,6 @@
 
         </div>
     </footer>
-
-    <script>
-        (function () {
-            const video = document.getElementById('heroVideo');
-            if (!video) return;
-
-            function forcePlay() {
-                video.muted = true;
-                video.play().catch(function () {
-                    document.addEventListener('touchstart', function () {
-                        video.play();
-                    }, { once: true });
-                });
-            }
-            forcePlay();
-            document.addEventListener('WeixinJSBridgeReady', forcePlay, false);
-        })();
-    </script>
 </body>
 
 </html>
