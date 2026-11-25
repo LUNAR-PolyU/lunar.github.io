@@ -299,7 +299,7 @@ main {
 }
 .hero-visual.subpage .hero-gif {
   /* flex: 0 0 30%; */
-  width: 40%;
+  width: 30%;
   height: auto;
   /* aspect-ratio: 4 / 3; */
   object-fit: cover;
@@ -358,12 +358,12 @@ main {
 
 .section-grid {
   display: grid;
-  grid-template-columns: 0.35fr 0.6fr;
+  grid-template-columns: 0.3fr 0.6fr;
   justify-content: space-between;
-  gap: 90px;
+  gap: 0px;
   /* border-top: 1px solid var(--line); */
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 90px;
 }
 .text-truncate {
   display: -webkit-box;
